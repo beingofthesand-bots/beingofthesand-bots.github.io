@@ -10,16 +10,22 @@
 </head>
 <body>
   <header>
-    <!-- Animated Lottie -->
     <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json"
                    background="transparent" speed="1"
                    style="width: 150px; height: 150px;" loop autoplay></lottie-player>
-
+  
     <img src="monis.png" alt="Ahmed Moonis" style="width:100px; border-radius: 50%;" />
     <h1>Ahmed Moonis</h1>
     <p>Computer Science Student | Programmer | Volunteer</p>
-    <button onclick="toggleMode()">Dark Mode</button>
+  
+    <button id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <!-- Start with sun icon -->
+      <svg id="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="orange" viewBox="0 0 24 24">
+        <path d="M12 4.354a7.646 7.646 0 0 0 0 15.292 7.646 7.646 0 0 0 0-15.292zM12 2a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm6.364 3.05a1 1 0 0 1 1.414 1.415l-1.415 1.414a1 1 0 1 1-1.414-1.414l1.415-1.415zM20 11a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2h2zm-3.05 6.364a1 1 0 0 1 1.415 1.414l-1.415 1.415a1 1 0 0 1-1.414-1.415l1.414-1.414zM12 19a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm-6.364-3.05a1 1 0 1 1-1.414-1.414l1.414-1.415a1 1 0 0 1 1.415 1.415L5.636 15.95zM4 13a1 1 0 1 1 0-2H2a1 1 0 1 1 0 2h2zm3.05-6.364a1 1 0 0 1-1.415-1.414L7.05 4.172a1 1 0 1 1 1.415 1.414L7.05 6.636z"/>
+      </svg>
+    </button>
   </header>
+  
 
   <section id="about">
     <h2>About Me</h2>
