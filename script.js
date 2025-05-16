@@ -47,3 +47,9 @@ function scrollToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+window.addEventListener("scroll", () => {
+  const image = document.getElementById("profileImage");
+  const rotation = Math.min(window.scrollY / 4, 90); // Limit to 90 degrees
+  image.style.transform = `rotate(${rotation}deg)`;
+  image.style.transition = 'transform 0.1s ease-out';
+});
