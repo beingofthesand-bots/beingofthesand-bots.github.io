@@ -5,8 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ahmed Moonis - Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Lottie Player for animated icons -->
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: #2d89ef;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    section {
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    button {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    header img {
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    #darkModeToggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    #darkModeToggle:hover {
+      transform: scale(1.2);
+    }
+
+    #darkModeToggle svg {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .dark-mode {
+      background-color: #222;
+      color: #f4f4f4;
+    }
+
+    #topBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      display: none;
+      padding: 10px;
+      border-radius: 50%;
+      background: #00f2fe;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -16,15 +106,23 @@
     <img id="profileImage" src="monis.png" alt="Ahmed Moonis" style="width:200px; border-radius: 50%;" />
     <h1>Ahmed Moonis</h1>
     <p>Computer Science Student | Programmer | Volunteer</p>
-  
-    <button id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <button id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode" >
       <!-- Start with sun icon -->
-      <svg id="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="orange" viewBox="0 0 24 24">
-        <path d="M12 4.354a7.646 7.646 0 0 0 0 15.292 7.646 7.646 0 0 0 0-15.292zM12 2a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm6.364 3.05a1 1 0 0 1 1.414 1.415l-1.415 1.414a1 1 0 1 1-1.414-1.414l1.415-1.415zM20 11a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2h2zm-3.05 6.364a1 1 0 0 1 1.415 1.414l-1.415 1.415a1 1 0 0 1-1.414-1.415l1.414-1.414zM12 19a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm-6.364-3.05a1 1 0 1 1-1.414-1.414l1.414-1.415a1 1 0 0 1 1.415 1.415L5.636 15.95zM4 13a1 1 0 1 1 0-2H2a1 1 0 1 1 0 2h2zm3.05-6.364a1 1 0 0 1-1.415-1.414L7.05 4.172a1 1 0 1 1 1.415 1.414L7.05 6.636z"/>
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5" fill="orange"/>
+        <g stroke="orange" stroke-width="2">
+          <line x1="12" y1="1" x2="12" y2="4"/>
+          <line x1="12" y1="20" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
+          <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="4" y2="12"/>
+          <line x1="20" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+          <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+        </g>
       </svg>
     </button>
   </header>
-  
 
   <section id="about">
     <h2>About Me</h2>
@@ -50,10 +148,67 @@
     <p>GitHub: <a href="https://github.com/beingofthesand-bots" target="_blank">beingofthesand-bots</a></p>
   </section>
 
-  <!-- Scroll to Top Button -->
   <button id="topBtn" onclick="scrollToTop()">↑</button>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+  <script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+
+    const sunIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="5" fill="orange"/>
+      <g stroke="orange" stroke-width="2">
+        <line x1="12" y1="1" x2="12" y2="4"/>
+        <line x1="12" y1="20" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
+        <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="4" y2="12"/>
+        <line x1="20" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+        <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+      </g>
+    </svg>`;
+
+    const moonIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="yellow">
+      <path d="M21.75 15.15a9 9 0 01-12.9-11.55 7.5 7.5 0 1012.9 11.55z"/>
+    </svg>`;
+
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        darkModeToggle.innerHTML = moonIcon;
+      } else {
+        darkModeToggle.innerHTML = sunIcon;
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('section').forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100 && rect.bottom > 100) {
+          section.classList.add('visible');
+        } else {
+          section.classList.remove('visible');
+        }
+      });
+
+      const topBtn = document.getElementById("topBtn");
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+
+      const image = document.getElementById("profileImage");
+      const rotation = Math.min(window.scrollY / 4, 90);
+      image.style.transform = `rotate(${rotation}deg)`;
+      image.style.transition = 'transform 0.1s ease-out';
+    });
+
+    function scrollToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 </body>
 </html>
