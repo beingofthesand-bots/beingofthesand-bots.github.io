@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name - Portfolio</title>
+  <title>Ahmed Moonis - Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Lottie Player for animated icons -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
   <header>
-    <img src="monis.jpg" alt="Ahmed Moonis" style="width:100px; border-radius: 50%;" />
+    <!-- Animated Lottie -->
+    <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json"
+                   background="transparent" speed="1"
+                   style="width: 150px; height: 150px;" loop autoplay></lottie-player>
+
+    <img src="monis.png" alt="Ahmed Moonis" style="width:100px; border-radius: 50%;" />
     <h1>Ahmed Moonis</h1>
     <p>Computer Science Student | Programmer | Volunteer</p>
     <button onclick="toggleMode()">Dark Mode</button>
@@ -17,7 +24,7 @@
   <section id="about">
     <h2>About Me</h2>
     <p>
-        Motivated and community-driven Computer Science student from Pakistan with strong academic and extracurricular background. Experienced in nonprofit leadership, event coordination, and educational outreach. Skilled in Python programming, content creation, and public speaking. Passionate about using technology to solve real-world problems and drive social impact.
+      Motivated and community-driven Computer Science student from Pakistan with strong academic and extracurricular background. Experienced in nonprofit leadership, event coordination, and educational outreach. Skilled in Python programming, content creation, and public speaking. Passionate about using technology to solve real-world problems and drive social impact.
     </p>
   </section>
 
@@ -27,7 +34,7 @@
       <li>Python</li>
       <li>C++</li>
       <li>Content creation</li>
-      <li>leadership</li>
+      <li>Leadership</li>
       <li>Forex Trading</li>
     </ul>
   </section>
@@ -38,6 +45,10 @@
     <p>GitHub: <a href="https://github.com/beingofthesand-bots" target="_blank">beingofthesand-bots</a></p>
   </section>
 
+  <!-- Scroll to Top Button -->
+  <button id="topBtn" onclick="scrollToTop()">↑</button>
+
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>

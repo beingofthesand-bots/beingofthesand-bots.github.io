@@ -30,4 +30,51 @@ body {
     background-color: #222;
     color: #f4f4f4;
   }
+
+  section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
   
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+
+  button {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  header img {
+    transition: transform 0.3s ease;
+  }
+
+  header img:hover {
+    transform: scale(1.05) rotate(3deg);
+  }
+
+  /* Scroll to top button styling if you add that */
+  #topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    display: none;
+    padding: 10px;
+    border-radius: 50%;
+    background: #00f2fe;
+    color: white;
+    border: none;
+  }
